@@ -35,7 +35,7 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
 
 ## Etat du projet :
 
-    Projet fini .
+   Le  Projet est fini .
 
 
 ## Instalation :
