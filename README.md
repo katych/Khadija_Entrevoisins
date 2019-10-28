@@ -17,11 +17,11 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
 ## Les fonctionnalités ajoutées dans l’application Entrevoisins :
 
 1_ Au clic sur un utilisateur, nouvel écran avec :
-* un bouton de retour à l'élément précédent ;
-* l'avatar de l'utilisateur ;
-* le nom de l'utilisateur ;
-* un bouton d’ajout du voisin à la liste de favoris ;
-* un onglet Favoris dans lequel les utilisateurs marqués comme favoris s’affichent.
+* Un bouton de retour à l'élément précédent .
+* L'avatar de l'utilisateur .
+* Le nom de l'utilisateur .
+* Un bouton d’ajout du voisin à la liste de favoris .
+* Un onglet Favoris dans lequel les utilisateurs marqués comme favoris s’affichent.
 
 ## Language utilisés :
 
