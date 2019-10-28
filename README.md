@@ -23,7 +23,7 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
 * Un bouton d’ajout du voisin à la liste de favoris .
 * Un onglet Favoris dans lequel les utilisateurs marqués comme favoris s’affichent.
 
-## Language utilisés :
+## Language utilisé :
 
     Java version 8 .
 
