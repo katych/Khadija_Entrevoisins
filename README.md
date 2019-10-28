@@ -15,7 +15,7 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
    ● ajouter un voisin ;
    ● suppression d’un voisin.
 
-## Les fonctionnalités ajoutés dans l’application Entrevoisins :
+## Les fonctionnalités ajoutées dans l’application Entrevoisins :
 
   1_ Au clic sur un utilisateur, nouvel écran avec :
         ● un bouton de retour à l'élément précédent ;
@@ -41,16 +41,16 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
 
 ##Instalation :
 
-1_ Pour lire ce projet vous avez besoin d'instaler Git sur votre ordinateur .
+1_ Pour lire ce projet vous avez besoin d'installer Git sur votre ordinateur .
 
-2_ copier ce lien [link](https://github.com/katych/Khadija_Entrevoisins.git) puis le coller dans votre projet Android Studio
+2_ copier ce lien [link](https://github.com/katych/Khadija_Entrevoisins.git) coller le dans votre projet Android Studio
    via git : ( File _ New _ project from version control _ Git).
 
 
  ## Démarrage :
 
 _  Utiliser un émulateur ou télephone.
-_ Cliquez sur Run .
+_ Cliquer sur Run .
 
 
 
