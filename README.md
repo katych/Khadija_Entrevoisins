@@ -34,12 +34,12 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
    * Glide
    * EventBus
 
-##Etat du projet :
+## Etat du projet :
 
     Projet fini .
 
 
-##Instalation :
+## Instalation :
 
 1_ Pour lire ce projet vous avez besoin d'installer Git sur votre ordinateur .
 
