@@ -10,9 +10,9 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
  Cours OpenClassRooms [link](https://github.com/Deyine/OpenClassrooms/tree/master/Android/Entrevoisins).
 
 ## Les fonctionnalités présentes dans l’application Entrevoisins :
-* lister mes voisins ;
-*ajouter un voisin ;
-*suppression d’un voisin.
+* Lister mes voisins ;
+*Ajouter un voisin ;
+*Suppression d’un voisin.
 
 ## Les fonctionnalités ajoutées dans l’application Entrevoisins :
 
