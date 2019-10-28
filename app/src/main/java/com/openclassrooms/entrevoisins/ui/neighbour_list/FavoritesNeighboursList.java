@@ -13,8 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.events.DeleteFavNeighbourEvents;
+import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 import java.util.List;
 
 public class FavoritesNeighboursList extends Fragment {
@@ -64,11 +70,25 @@ public class FavoritesNeighboursList extends Fragment {
       }
 
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
     @Override
     public void onStop() {
         super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
 
-   }
 
+
+    @Subscribe
+    public void onDeleteFavNeighbour(DeleteFavNeighbourEvents event) {
+        mApiService.deleteFavorites(event.neighbour);
+        initList();
+    }
 
 }
