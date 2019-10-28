@@ -11,22 +11,22 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
 
 ## Les fonctionnalités présentes dans l’application Entrevoisins :
 
-   ● lister mes voisins ;
-   ● ajouter un voisin ;
-   ● suppression d’un voisin.
+   _ lister mes voisins ;
+   _ajouter un voisin ;
+   _ suppression d’un voisin.
 
 ## Les fonctionnalités ajoutées dans l’application Entrevoisins :
 
   1_ Au clic sur un utilisateur, nouvel écran avec :
-        ● un bouton de retour à l'élément précédent ;
-        ● l'avatar de l'utilisateur ;
-        ● le nom de l'utilisateur ;
-        ● un bouton d’ajout du voisin à la liste de favoris ;
-        ● un onglet Favoris dans lequel les utilisateurs marqués comme favoris s’affichent.
+        _ un bouton de retour à l'élément précédent ;
+        _ l'avatar de l'utilisateur ;
+        _ le nom de l'utilisateur ;
+        _un bouton d’ajout du voisin à la liste de favoris ;
+        _un onglet Favoris dans lequel les utilisateurs marqués comme favoris s’affichent.
 
 ## Language utilisés :
 
-    *java version 8 .
+    java version 8 .
 
 ## Librairies utilisées :
 
