@@ -32,6 +32,10 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
    * ButterKnife
    * Glide
    * EventBus
+   * RecyclerView
+   * Espresso 
+   * CardView 
+   * Design 
 
 ## Etat du projet :
 
