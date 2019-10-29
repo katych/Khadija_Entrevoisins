@@ -25,7 +25,7 @@ Entrevoisins est une application Android qui permet à des voisins de se rendre 
 
 ## Language utilisé :
 
-    Java version 8 .
+    Android muni de Java version 8 .
 
 ## Librairies utilisées :
 

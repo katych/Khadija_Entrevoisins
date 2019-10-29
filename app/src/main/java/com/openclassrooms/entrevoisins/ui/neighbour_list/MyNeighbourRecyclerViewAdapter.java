@@ -24,10 +24,10 @@ import butterknife.ButterKnife;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    private onClickListener mListener;
+    private onClickListenerView mListener;
 
 
-    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items ) {
+    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
 
     }
@@ -36,11 +36,11 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_neighbour, parent, false);
-        return new ViewHolder(view , mListener );
+        return new ViewHolder(view, mListener);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position ) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Neighbour neighbour = mNeighbours.get(position);
         holder.mNeighbourName.setText(neighbour.getName());
         Glide.with(holder.mNeighbourAvatar.getContext())
@@ -64,7 +64,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         return mNeighbours.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder  {
         @BindView(R.id.item_list_avatar)
         public ImageView mNeighbourAvatar;
         @BindView(R.id.item_list_name)
@@ -72,26 +72,28 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
 
-        public ViewHolder(View view , onClickListener listener ) {
+        public ViewHolder(View view, onClickListenerView listener) {
             super(view);
             ButterKnife.bind(this, view);
 
-           view.setOnClickListener(new View.OnClickListener() {
+            view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onClickItem(getAdapterPosition());
-               }
-           });
+                }
+            });
+
 
         }
+
     }
 
- public  interface onClickListener {
+    public interface onClickListenerView {
 
-        void onClickItem (int position);
-}
+        void onClickItem(int position);
+    }
 
-public void setOnClickListener (onClickListener listener){
-       mListener=listener;
-}
+    public void setOnClickListener(onClickListenerView listener) {
+        mListener = listener;
+    }
 }

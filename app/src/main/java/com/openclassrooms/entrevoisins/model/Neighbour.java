@@ -22,14 +22,10 @@ public class Neighbour implements Parcelable {
     private String avatarUrl;
 
     private String adresse;
-
     private String user_phone;
     private String facebook ;
     private String user_message;
     private boolean favorite;
-
-
-
 
 
     /**

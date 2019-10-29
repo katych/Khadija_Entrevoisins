@@ -63,7 +63,7 @@ public class NeighbourFragment extends Fragment {
         mAdapter= new MyNeighbourRecyclerViewAdapter(mNeighbours);
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnClickListener(new MyNeighbourRecyclerViewAdapter.onClickListener() {
+        mAdapter.setOnClickListener(new MyNeighbourRecyclerViewAdapter.onClickListenerView() {
             @Override
             public void onClickItem(int position) {
 
@@ -101,4 +101,6 @@ public class NeighbourFragment extends Fragment {
         mApiService.deleteNeighbour(event.neighbour);
        initList();
     }
+
+
 }

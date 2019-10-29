@@ -46,8 +46,9 @@ private NeighbourApiService mApiService;
 
     @BindView(R.id.button_favorites)
     ImageButton btn_favorites;
- @BindView(R.id.btnBack)
- ImageButton btnBack;
+
+    @BindView(R.id.btnBack)
+    ImageButton btnBack;
 
 
     @Override
@@ -55,14 +56,13 @@ private NeighbourApiService mApiService;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_neighbours);
 
-
-
         mApiService=DI.getNeighbourApiService();
 
         Intent intent = getIntent();
         position = intent.getExtras().getInt("position1");
 
         Neighbour mNeighbour = intent.getParcelableExtra("mNeighbours");
+
         ButterKnife.bind(this);
 
         Glide.with(imageView.getContext())
@@ -75,6 +75,16 @@ private NeighbourApiService mApiService;
         user_phone.setText(mNeighbour.getUser_phone());
         user_facebook.setText(mNeighbour.getFacebook());
         user_message.setText(mNeighbour.getUser_message());
+
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailsNeighbour.this,ListNeighbourActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
        btn_favorites.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -93,15 +103,7 @@ private NeighbourApiService mApiService;
        });
 
 
-       btnBack.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(DetailsNeighbour.this,ListNeighbourActivity.class);
 
-               startActivity(intent);
-
-           }
-       });
 
         }
 
