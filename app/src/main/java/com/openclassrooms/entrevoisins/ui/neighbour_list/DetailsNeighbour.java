@@ -13,6 +13,10 @@ import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -20,6 +24,7 @@ import butterknife.ButterKnife;
 public class DetailsNeighbour extends AppCompatActivity {
 
 private NeighbourApiService mApiService;
+private List<Neighbour> mNeighbours;
 
   private int position  ;
 
@@ -57,11 +62,12 @@ private NeighbourApiService mApiService;
         setContentView(R.layout.details_neighbours);
 
         mApiService=DI.getNeighbourApiService();
+        mNeighbours= mApiService.getNeighbours();
 
         Intent intent = getIntent();
         position = intent.getExtras().getInt("position1");
 
-        Neighbour mNeighbour = intent.getParcelableExtra("mNeighbours");
+        Neighbour mNeighbour = mNeighbours.get(position);
 
         ButterKnife.bind(this);
 
