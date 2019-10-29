@@ -13,12 +13,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteFavNeighbourEvents;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-
 import org.greenrobot.eventbus.EventBus;
-
-import java.util.EventListener;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
