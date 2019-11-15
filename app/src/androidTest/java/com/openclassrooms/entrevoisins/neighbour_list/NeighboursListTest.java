@@ -124,13 +124,16 @@ public class NeighboursListTest {
     @Test
     public void deleteFavoritesNeighbour_ifListNotEmpty() {
 
-        mFavoriteList=new ArrayList<>();
-        Neighbour mNeighbour = mNeighbourList.get(position);
-        mNeighbour.setFavorite(true);
-        mFavoriteList.add(mNeighbour);
-        onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(position,click()));
-        onView(withId(R.id.button_favorites)).perform(click());
-        pressBack();
+        mFavoriteList = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            Neighbour mNeighbour = mNeighbourList.get(i);
+            mNeighbour.setFavorite(true);
+            mFavoriteList.add(mNeighbour);
+            onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(position, click()));
+            onView(withId(R.id.button_favorites)).perform(click());
+            pressBack();
+        }
         onView(withId(R.id.container)).perform(scrollRight());
         onView(withId(R.id.list_favorites_neighbours)).check(withItemCount(mFavoriteList.size()));
         onView(withId(R.id.list_favorites_neighbours))
@@ -138,8 +141,7 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_favorites_neighbours)).check(withItemCount(mFavoriteList.size() - 1));
 
 
-
-   }
+    }
 
     @Test
     public void listFavorites_containsJust_FavoritesNeighbours(){

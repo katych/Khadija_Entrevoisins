@@ -14,20 +14,17 @@ import android.view.ViewGroup;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.events.DeleteFavNeighbourEvents;
-import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
-
 import java.util.List;
 
 public class FavoritesNeighboursList extends Fragment {
     private List<Neighbour> mFavorites;
     private NeighbourApiService mApiService;
     private RecyclerView mRecyclerView;
-    public static FavoritesListRecyclerviewAdapter mAdapter;
+    public static FavoritesListRecyclerViewAdapter mAdapter;
 
 
   public static FavoritesNeighboursList newInstance(){
@@ -65,7 +62,7 @@ public class FavoritesNeighboursList extends Fragment {
     private void initList() {
 
             mFavorites = mApiService.getFavoritesNeighbour();
-            mAdapter= new FavoritesListRecyclerviewAdapter(mFavorites);
+            mAdapter= new FavoritesListRecyclerViewAdapter(mFavorites);
             mRecyclerView.setAdapter(mAdapter);
       }
 

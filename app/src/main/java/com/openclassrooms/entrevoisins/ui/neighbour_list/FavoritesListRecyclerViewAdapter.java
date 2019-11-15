@@ -19,12 +19,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FavoritesListRecyclerviewAdapter extends RecyclerView.Adapter<FavoritesListRecyclerviewAdapter.mViewHolder> {
+public class FavoritesListRecyclerViewAdapter extends RecyclerView.Adapter<FavoritesListRecyclerViewAdapter.mViewHolder> {
     private List<Neighbour> mFavoritesNeighbours;
 
 
 
-    public FavoritesListRecyclerviewAdapter(List<Neighbour> mFavoritesNeighbours) {
+    public FavoritesListRecyclerViewAdapter(List<Neighbour> mFavoritesNeighbours) {
         this.mFavoritesNeighbours = mFavoritesNeighbours;
     }
 
