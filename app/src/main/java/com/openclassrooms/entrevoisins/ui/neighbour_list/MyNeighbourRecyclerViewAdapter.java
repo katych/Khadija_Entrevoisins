@@ -82,8 +82,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                     listener.onClickItem(getAdapterPosition());
                 }
             });
-
-
         }
 
     }

@@ -69,7 +69,6 @@ public class NeighbourFragment extends Fragment {
 
           Intent intent = new Intent(getActivity(),DetailsNeighbour.class);
 
-          //intent.putExtra("mNeighbours", mNeighbours.get(position));
           intent.putExtra("position1",position);
 
           startActivity(intent);
