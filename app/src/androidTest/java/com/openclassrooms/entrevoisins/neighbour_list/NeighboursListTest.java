@@ -38,6 +38,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withResourceNam
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 
+import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.core.IsNull.notNullValue;
 
 
@@ -51,7 +52,7 @@ public class NeighboursListTest {
 
     // This is fixed
     private static int ITEMS_COUNT = 12;
-    private static int FAVORITES_COUNT = 4;
+
 
     private ListNeighbourActivity mActivity;
 
@@ -79,7 +80,7 @@ public class NeighboursListTest {
     @Test
     public void myNeighboursList_shouldNotBeEmpty() {
         // First scroll to the position that needs to be matched and click on it.
-        onView (ViewMatchers.withId(R.id.list_neighbours))
+        onView (allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed()))
                 .check(matches(hasMinimumChildCount(1)));
     }
 
@@ -90,12 +91,12 @@ public class NeighboursListTest {
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
         // Given : We remove the element at position 2
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed())).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
-        onView(ViewMatchers.withId(R.id.list_neighbours))
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed()))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
         // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed())).check(withItemCount(ITEMS_COUNT-1));
 
 
 
@@ -106,8 +107,8 @@ public class NeighboursListTest {
     @Test
     public void clickItemAction_mustOpen_detailsActivity () {
 
-        onView(ViewMatchers.withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(position, click()));
-        onView(ViewMatchers.withId(R.id.details_neighbours)).check(matches(isDisplayed()));
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours),isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(position, click()));
+        onView(allOf(ViewMatchers.withId(R.id.details_neighbours),isDisplayed())).check(matches(isDisplayed()));
 
 
     }
@@ -117,24 +118,12 @@ public class NeighboursListTest {
     public void userNameText_isNotEmpty (){
 
         Neighbour mNeighbour = mNeighbourList.get(position);
-        onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(position,click()));
-        onView(withId(R.id.neighbours_name)).check(matches(withText(mNeighbour.getName())));
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(position,click()));
+        onView(allOf(withId(R.id.neighbours_name),isDisplayed())).check(matches(withText(mNeighbour.getName())));
 
     }
- 
-    @Test
-    public void deleteFavoritesNeighbour_ifListNotEmpty() {
 
 
-        onView(ViewMatchers.withId(R.id.list_favorites_neighbours)).check(withItemCount(FAVORITES_COUNT));
-
-        onView(withId(R.id.container)).perform(scrollRight());
-
-        onView(ViewMatchers.withId(R.id.list_favorites_neighbours))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
-        onView(ViewMatchers.withId(R.id.list_favorites_neighbours)).check(withItemCount(FAVORITES_COUNT-1));
-
-    }
 
     @Test
     public void listFavorites_containsJust_FavoritesNeighbours(){
@@ -145,18 +134,32 @@ public class NeighboursListTest {
             Neighbour mNeighbour = mNeighbourList.get(i);
             mNeighbour.setFavorite(true);
             mFavoriteList.add(mNeighbour);
-            onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(i, click()));
-            onView(withId(R.id.button_favorites)).perform(click());
+            onView(allOf(withId(R.id.list_neighbours),isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(i, click()));
+            onView(allOf(withId(R.id.button_favorites),isDisplayed())).perform(click());
             pressBack();
 
         }
-        onView(withId(R.id.container)).perform(scrollRight());
-        onView(withId(R.id.list_favorites_neighbours)).check(matches(isDisplayed()));
-        onView(withId(R.id.list_favorites_neighbours)).check(withItemCount(mFavoriteList.size()));
-
-        }
+        onView(allOf(withId(R.id.container),isDisplayed())).perform(scrollRight());
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).check(matches(isDisplayed()));
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).check(withItemCount(mFavoriteList.size()));
 
     }
+
+
+
+ 
+    @Test
+    public void deleteFavoritesNeighbour_ifListNotEmpty() {
+
+
+        onView(allOf(withId(R.id.container), isDisplayed())).perform(scrollRight());
+
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
+
+    }
+}
+
 
 
 

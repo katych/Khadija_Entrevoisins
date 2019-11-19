@@ -54,9 +54,9 @@ public class NeighbourServiceTest {
 
     @Test
     public void addFavoritesWithSuccess(){
-        Neighbour neighbour = new Neighbour(1,"test","test","test","test","test","test");
-        service.addFavoritesNeighbour(0);
-        assertTrue(service.getFavoritesNeighbour().contains(neighbour));
+        service.addFavoritesNeighbour(service.getNeighbours().get(0));
+        assertTrue(service.getFavoritesNeighbour().contains(service.getNeighbours().get(0)));
+
     }
 
 

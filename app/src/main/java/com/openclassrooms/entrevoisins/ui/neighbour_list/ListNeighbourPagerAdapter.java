@@ -23,7 +23,9 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
 
             return NeighbourFragment.newInstance();
-        } else {
+        }
+
+        else {
 
             return FavoritesNeighboursList.newInstance();
 

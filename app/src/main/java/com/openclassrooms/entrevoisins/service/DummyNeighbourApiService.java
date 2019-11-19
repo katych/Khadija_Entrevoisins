@@ -42,9 +42,9 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
     @Override
-    public void addFavoritesNeighbour(int position) {
+    public void addFavoritesNeighbour(Neighbour neighbour) {
 
-            neighbours.get(position).setFavorite(true);
+            neighbour.setFavorite(true);
 
     }
 
@@ -54,7 +54,10 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
      */
     @Override
     public void deleteNeighbour(Neighbour neighbour) {
+
         neighbours.remove(neighbour);
+
+
 
     }
 

@@ -25,6 +25,7 @@ public class DetailsNeighbour extends AppCompatActivity {
 
 private NeighbourApiService mApiService;
 private List<Neighbour> mNeighbours;
+private Neighbour mNeighbour;
 
   private int position  ;
 
@@ -65,7 +66,10 @@ private List<Neighbour> mNeighbours;
         mNeighbours= mApiService.getNeighbours();
 
         Intent intent = getIntent();
+
         position = intent.getExtras().getInt("position1");
+
+        mNeighbour = intent.getExtras().getParcelable("mNeighbour");
 
         Neighbour mNeighbour = mNeighbours.get(position);
 
@@ -98,7 +102,7 @@ private List<Neighbour> mNeighbours;
 
                btn_favorites.setImageResource(R.drawable.ic_star_white_24dp);
 
-                   mApiService.addFavoritesNeighbour(position);
+                   mApiService.addFavoritesNeighbour(mNeighbour);
 
 
              FavoritesNeighboursList.mAdapter.notifyDataSetChanged();

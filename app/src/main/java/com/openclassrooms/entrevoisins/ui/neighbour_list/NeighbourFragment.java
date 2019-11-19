@@ -26,6 +26,7 @@ public class NeighbourFragment extends Fragment  {
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
     private MyNeighbourRecyclerViewAdapter mAdapter;
+    private Neighbour neighbour;
 
     /**
      * Create and return a new instance
@@ -69,7 +70,11 @@ public class NeighbourFragment extends Fragment  {
 
           Intent intent = new Intent(getActivity(),DetailsNeighbour.class);
 
-          intent.putExtra("position",position);
+          intent.putExtra("position1",position);
+
+            neighbour = mNeighbours.get(position);
+
+          intent.putExtra("mNeighbour", neighbour);
 
           startActivity(intent);
             }
