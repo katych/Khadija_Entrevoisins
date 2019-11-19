@@ -128,17 +128,14 @@ public class NeighboursListTest {
     @Test
     public void listFavorites_containsJust_FavoritesNeighbours(){
 
-        mFavoriteList=new ArrayList<>();
 
-        for ( int i=0 ; i<4;i++ ) {
-            Neighbour mNeighbour = mNeighbourList.get(i);
+            Neighbour mNeighbour = mNeighbourList.get(0);
             mNeighbour.setFavorite(true);
             mFavoriteList.add(mNeighbour);
-            onView(allOf(withId(R.id.list_neighbours),isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(i, click()));
+            onView(allOf(withId(R.id.list_neighbours),isDisplayed())).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
             onView(allOf(withId(R.id.button_favorites),isDisplayed())).perform(click());
             pressBack();
 
-        }
         onView(allOf(withId(R.id.container),isDisplayed())).perform(scrollRight());
         onView(allOf(withId(R.id.list_neighbours),isDisplayed())).check(matches(isDisplayed()));
         onView(allOf(withId(R.id.list_neighbours),isDisplayed())).check(withItemCount(mFavoriteList.size()));
@@ -146,19 +143,36 @@ public class NeighboursListTest {
     }
 
 
-
- 
     @Test
     public void deleteFavoritesNeighbour_ifListNotEmpty() {
 
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).check(matches(isDisplayed()));
+        //click on the first neighbour to show detail
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed()))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0,click()));
+        //click on the fab button to add it to favorite
+        onView(allOf(withId(R.id.button_favorites),isDisplayed())).perform(click());
+        //return back
+        pressBack();
 
-        onView(allOf(withId(R.id.container), isDisplayed())).perform(scrollRight());
-
-        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
+        //scroll to the favorite page in the container
+        onView(allOf(withId(R.id.container),isDisplayed())).perform(scrollRight());
+        //Then : assert that the page is displayed
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).check(matches(isDisplayed()));
+        //check if the favorite count is 1
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).check(withItemCount(1));
+        // When perform a click on a delete icon
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed()))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
+        // Then : the number of element is 0
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).check(withItemCount(0));
+    }
 
     }
-}
+
+
+
+
 
 
 
