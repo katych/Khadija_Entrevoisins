@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
-import com.openclassrooms.entrevoisins.events.DeleteFavNeighbourEvents;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import org.greenrobot.eventbus.EventBus;
@@ -21,10 +20,10 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.List;
 
 public class FavoritesNeighboursList extends Fragment {
-    private List<Neighbour> mFavorites;
+    private List<Neighbour> mNeighbours;
     private NeighbourApiService mApiService;
     private RecyclerView mRecyclerView;
-    public static FavoritesListRecyclerViewAdapter mAdapter;
+    public static MyNeighbourRecyclerViewAdapter mAdapter;
 
 
   public static FavoritesNeighboursList newInstance(){
@@ -42,7 +41,7 @@ public class FavoritesNeighboursList extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-      View view = inflater.inflate(R.layout.fragement_favorites_list, container, false);
+      View view = inflater.inflate(R.layout.fragment_neighbour_list, container, false);
       Context context = view.getContext();
       mRecyclerView = (RecyclerView) view;
       mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -58,27 +57,11 @@ public class FavoritesNeighboursList extends Fragment {
 
     private void initList() {
 
-            mFavorites = mApiService.getFavoritesNeighbour();
-            mAdapter= new FavoritesListRecyclerViewAdapter(mFavorites);
+            mNeighbours = mApiService.getFavoritesNeighbour();
+            mAdapter= new MyNeighbourRecyclerViewAdapter(mNeighbours);
             mRecyclerView.setAdapter(mAdapter);
+
       }
 
-      @Override
-    public void onStart() {
-          super.onStart();
-          EventBus.getDefault().register(this);
-      }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        EventBus.getDefault().unregister(this);
-    }
-
-    @Subscribe
-    public void onDeleteFavNeighbour(DeleteFavNeighbourEvents event) {
-        mApiService.deleteFavorites(event.neighbour);
-        initList();
-    }
 
 }

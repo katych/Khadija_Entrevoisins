@@ -121,7 +121,7 @@ public class NeighboursListTest {
         onView(withId(R.id.neighbours_name)).check(matches(withText(mNeighbour.getName())));
 
     }
-
+ 
     @Test
     public void deleteFavoritesNeighbour_ifListNotEmpty() {
 

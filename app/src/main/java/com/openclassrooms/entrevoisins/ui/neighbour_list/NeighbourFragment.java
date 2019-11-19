@@ -20,7 +20,7 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.List;
 
 
-public class NeighbourFragment extends Fragment {
+public class NeighbourFragment extends Fragment  {
 
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
@@ -62,13 +62,14 @@ public class NeighbourFragment extends Fragment {
         mAdapter= new MyNeighbourRecyclerViewAdapter(mNeighbours);
         mRecyclerView.setAdapter(mAdapter);
 
+
         mAdapter.setOnClickListener(new MyNeighbourRecyclerViewAdapter.onClickListenerView() {
             @Override
             public void onClickItem(int position) {
 
           Intent intent = new Intent(getActivity(),DetailsNeighbour.class);
 
-          intent.putExtra("position1",position);
+          intent.putExtra("position",position);
 
           startActivity(intent);
             }
