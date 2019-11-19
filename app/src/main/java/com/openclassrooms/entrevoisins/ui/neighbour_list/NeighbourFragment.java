@@ -40,7 +40,6 @@ public class NeighbourFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mApiService = DI.getNeighbourApiService();
-
     }
 
     @Override
@@ -72,8 +71,6 @@ public class NeighbourFragment extends Fragment {
           intent.putExtra("position1",position);
 
           startActivity(intent);
-
-
             }
         });
     }
@@ -100,6 +97,4 @@ public class NeighbourFragment extends Fragment {
         mApiService.deleteNeighbour(event.neighbour);
        initList();
     }
-
-
 }

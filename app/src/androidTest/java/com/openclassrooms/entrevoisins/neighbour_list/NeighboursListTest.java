@@ -130,7 +130,7 @@ public class NeighboursListTest {
             Neighbour mNeighbour = mNeighbourList.get(i);
             mNeighbour.setFavorite(true);
             mFavoriteList.add(mNeighbour);
-            onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(position, click()));
+            onView(withId(R.id.list_neighbours)).perform(RecyclerViewActions.actionOnItemAtPosition(i, click()));
             onView(withId(R.id.button_favorites)).perform(click());
             pressBack();
         }

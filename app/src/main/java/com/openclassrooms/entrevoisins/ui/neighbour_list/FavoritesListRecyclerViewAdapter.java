@@ -22,8 +22,6 @@ import butterknife.ButterKnife;
 public class FavoritesListRecyclerViewAdapter extends RecyclerView.Adapter<FavoritesListRecyclerViewAdapter.mViewHolder> {
     private List<Neighbour> mFavoritesNeighbours;
 
-
-
     public FavoritesListRecyclerViewAdapter(List<Neighbour> mFavoritesNeighbours) {
         this.mFavoritesNeighbours = mFavoritesNeighbours;
     }

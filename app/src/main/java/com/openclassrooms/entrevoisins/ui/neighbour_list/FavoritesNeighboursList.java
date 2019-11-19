@@ -32,27 +32,24 @@ public class FavoritesNeighboursList extends Fragment {
      return fragment;
   }
 
-
-    @Override
+  @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mApiService= DI.getNeighbourApiService();
+      super.onCreate(savedInstanceState);
+      mApiService = DI.getNeighbourApiService();
 
-    }
-
-
-    @Nullable
+  }
+  @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragement_favorites_list, container, false);
-        Context context = view.getContext();
-         mRecyclerView = (RecyclerView)view;
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-        initList();
-        return view;
-    }
+      View view = inflater.inflate(R.layout.fragement_favorites_list, container, false);
+      Context context = view.getContext();
+      mRecyclerView = (RecyclerView) view;
+      mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+      mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+      initList();
+      return view;
+  }
 
    @Override
     public void onResume() {
@@ -66,21 +63,17 @@ public class FavoritesNeighboursList extends Fragment {
             mRecyclerView.setAdapter(mAdapter);
       }
 
-
-
-    @Override
+      @Override
     public void onStart() {
-        super.onStart();
-        EventBus.getDefault().register(this);
-    }
+          super.onStart();
+          EventBus.getDefault().register(this);
+      }
 
     @Override
     public void onStop() {
         super.onStop();
         EventBus.getDefault().unregister(this);
     }
-
-
 
     @Subscribe
     public void onDeleteFavNeighbour(DeleteFavNeighbourEvents event) {
